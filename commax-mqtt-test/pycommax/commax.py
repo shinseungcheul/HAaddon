@@ -61,7 +61,7 @@ def find_device(config):
         raw_data = msg.payload.hex().upper()
         for k in range(0, len(raw_data), 16):
             data = raw_data[k:k + 16]
-            # log(data)
+            log(data)
             if data == checksum(data) and data[:2] in statePrefix:
                 name = statePrefix[data[:2]]
                 collect_data[name].add(data)
