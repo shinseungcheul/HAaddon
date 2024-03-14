@@ -188,7 +188,7 @@ def do_work(config, device_list):
         log('[LOG] 50개의 신호를 수집 중..')
 
     async def recv_from_HA(topics, value):
-        device = topics[1][:-1]
+        device = topics[1][:-2]
         if mqtt_log:
             log('[LOG] HA ->> : {} -> {}'.format('/'.join(topics), value))
 
