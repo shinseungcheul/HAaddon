@@ -194,7 +194,7 @@ def do_work(config, device_list):
 
         if device in DEVICE_LISTS:
             key = topics[1] + topics[2]
-            idx = int(topics[1][:-2])
+            idx = int(topics[1][-2:])
             cur_state = HOMESTATE.get(key)
             value = 'ON' if value == 'heat' else value.upper()
             if cur_state:
