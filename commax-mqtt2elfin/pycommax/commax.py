@@ -343,7 +343,7 @@ def do_work(config, device_list):
 
     async def update_state(device, idx, onoff):
         state = 'power'
-        deviceID = device + str(idx + 1)
+        deviceID = device + str(idx + 1).zfill(2)
         key = deviceID + state
 
         if onoff != HOMESTATE.get(key):
@@ -358,7 +358,7 @@ def do_work(config, device_list):
         return
 
     async def update_fan(idx, onoff):
-        deviceID = 'Fan' + str(idx + 1)
+        deviceID = 'Fan' + str(idx + 1).zfill(2)
         if onoff == 'ON' or onoff == 'OFF':
             state = 'power'
 
@@ -383,7 +383,7 @@ def do_work(config, device_list):
         return
 
     async def update_temperature(idx, curTemp, setTemp):
-        deviceID = 'Thermo' + str(idx + 1)
+        deviceID = 'Thermo' + str(idx + 1).zfill(2)
         temperature = {'curTemp': pad(curTemp), 'setTemp': pad(setTemp)}
         for state in temperature:
             key = deviceID + state
@@ -400,7 +400,7 @@ def do_work(config, device_list):
         return
 
     async def update_outlet_value(idx, val):
-        deviceID = 'Outlet' + str(idx + 1)
+        deviceID = 'Outlet' + str(idx + 1).zfill(2)
         try:
             val = '%.1f' % float(int(val) / 10)
             topic = STATE_TOPIC.format(deviceID, 'watt')
@@ -411,7 +411,7 @@ def do_work(config, device_list):
             pass
 
     async def update_ev_value(idx, val):
-        deviceID = 'EV' + str(idx + 1)
+        deviceID = 'EV' + str(idx + 1).zfill(2)
         try:
             BF = device_info['EV']['BasementFloor']
             val = str(int(val) - BF + 1) if val >= BF else 'B' + str(BF - int(val))
