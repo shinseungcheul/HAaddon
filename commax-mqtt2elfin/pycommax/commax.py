@@ -246,7 +246,7 @@ def do_work(config, device_list):
 
                     else:
                         if debug:
-                            log('Debug device: [{}], idx: [{}], DEVICE_LISTS:[{DEVICE_LISTS}]')
+                            log('Debug device: [{}], idx: [{}], DEVICE_LISTS:[{}]'.format(device,idx,DEVICE_LISTS))
                         sendcmd = DEVICE_LISTS[device][idx].get('command' + value)
                         if debug:
                             log('[DEBUG] send command:{}'.format(sendcmd))
