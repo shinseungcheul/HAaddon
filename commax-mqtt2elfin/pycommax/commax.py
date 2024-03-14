@@ -194,7 +194,7 @@ def do_work(config, device_list):
 
         if device in DEVICE_LISTS:
             key = topics[1] + topics[2]
-            idx = int(topics[1][-2])
+            idx = int(topics[1][:-2])
             cur_state = HOMESTATE.get(key)
             value = 'ON' if value == 'heat' else value.upper()
             if cur_state:
@@ -245,8 +245,6 @@ def do_work(config, device_list):
                                     log('[DEBUG] Queued ::: sendcmd: {}, recvcmd: {}'.format(sendcmd, recvcmd))
 
                     else:
-                        if debug:
-                            log('Debug device: [{}], idx: [{}], DEVICE_LISTS:[{}]'.format(device,idx,DEVICE_LISTS))
                         sendcmd = DEVICE_LISTS[device][idx].get('command' + value)
                         if debug:
                             log('[DEBUG] send command:{}'.format(sendcmd))
