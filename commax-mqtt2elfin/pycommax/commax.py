@@ -113,7 +113,7 @@ def do_work(config, device_list):
         if input_hex:
             try:
                 change = int(change)
-                input_hex = '{}{}{}'.format(input_hex[:change - 1], int(input_hex[change - 1]) + k, input_hex[change:])
+                input_hex = '{}{}{}'.format(input_hex[:change - 1], format(int(input_hex[change - 1]) + k,'X'), input_hex[change:])
             except:
                 pass
         return checksum(input_hex)
