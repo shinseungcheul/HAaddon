@@ -8,7 +8,7 @@ share_dir = '/share'
 config_dir = '/data'
 data_dir = '/pycommax'
 
-HA_TOPIC = 'homenet'
+HA_TOPIC = 'homeassistant'
 STATE_TOPIC = HA_TOPIC + '/{}/{}/state'
 ELFIN_TOPIC = 'ew11'
 ELFIN_SEND_TOPIC = ELFIN_TOPIC + '/send'
